@@ -19,7 +19,7 @@ function Row({ icon, label, on, onChange }) {
   )
 }
 
-export default function Settings({ settings, set, full, onFull, onClose, onView }) {
+export default function Settings({ settings, set, full, onFull, onClose }) {
   useEffect(() => {
     const k = (e) => e.key === 'Escape' && onClose()
     window.addEventListener('keydown', k)
@@ -53,12 +53,6 @@ export default function Settings({ settings, set, full, onFull, onClose, onView 
             <Row icon="image" label="Background image" on={settings.bg} onChange={(v) => set({ bg: v })} />
             <Row icon="sound" label="Sound effects" on={settings.sound} onChange={(v) => set({ sound: v })} />
             <Row icon="full" label="Full screen" on={full} onChange={onFull} />
-          </div>
-
-          <h5>Views</h5>
-          <div className="views">
-            <button onClick={() => onView('cover')}><Icon name="home" size={22} /> Cover</button>
-            <button onClick={() => onView('hub')}><Icon name="grid" size={22} /> Regulator hub</button>
           </div>
         </div>
       </div>

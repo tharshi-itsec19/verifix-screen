@@ -195,7 +195,6 @@ export default function App() {
           full={full}
           onFull={toggleFull}
           onClose={() => setPanel(null)}
-          onView={(v) => goScreen(v)}
         />
       )}
 
