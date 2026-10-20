@@ -1,0 +1,19 @@
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+
+// base './' makes the build work on GitHub Pages under any repo name.
+// Fixed file names (no random hash) mean a browser that still has an old copy of the page
+// never ends up asking for a script file that no longer exists (no more blank page after an update).
+export default defineConfig({
+  base: './',
+  plugins: [react()],
+  build: {
+    rollupOptions: {
+      output: {
+        entryFileNames: 'assets/app.js',
+        chunkFileNames: 'assets/[name].js',
+        assetFileNames: 'assets/[name][extname]',
+      },
+    },
+  },
+})
